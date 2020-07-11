@@ -26,7 +26,7 @@ public class AnxietyKey : MonoBehaviour
         initialSize =  (0.5f + difficulty * 1.5f);
         transform.localScale = Vector3.one * initialSize;
 
-        transform.Rotate(Vector3.forward, Random.Range(-15f, 15f));
+        transform.Rotate(Vector3.forward, Random.Range(-3f,3f));
 
         StartCoroutine(LifeTimer());
     }
@@ -59,6 +59,7 @@ public class AnxietyKey : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
-        GameLoop.instance.GameOver();
+        GameLoop.instance.keyManager.DespawnKey(this);
+        GameLoop.instance.Damage();
     }
 }

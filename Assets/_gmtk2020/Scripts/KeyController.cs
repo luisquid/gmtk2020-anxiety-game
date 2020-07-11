@@ -24,15 +24,13 @@ public class KeyController : MonoBehaviour
 
     private void Update()
     {
+        if (!GameLoop.instance.isPlaying) return;
+
         for (int i = 0; i < spawnedKeys.Count; i++)
         {
-            if (spawnedKeys[i].gameObject != null && spawnedKeys[i].IsCompleted())
+            if (spawnedKeys[i].IsCompleted())
             {
-                splush.transform.position = spawnedKeys[i].transform.position;
-                splush.Play();
-
-                shakeCam.SetCameraShake(0.25f);
-
+                
                 DespawnKey(spawnedKeys[i]);
             }
         }
@@ -51,8 +49,13 @@ public class KeyController : MonoBehaviour
         }
     }
 
-    void DespawnKey(AnxietyKey k)
+    public void DespawnKey(AnxietyKey k)
     {
+        splush.transform.position = k.transform.position;
+        splush.Play();
+
+        shakeCam.SetCameraShake(0.25f);
+
         allowedKeys.Add(k.kcode);
         availableSpaces.Add(k.transform.parent);
         spawnedKeys.Remove(k);
@@ -65,9 +68,10 @@ public class KeyController : MonoBehaviour
     {
         while(true)
         {
-            SpawnKey();
+            if(GameLoop.instance.isPlaying)
+                SpawnKey();
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(3);
         }
     }
 
@@ -87,5 +91,7 @@ public class KeyController : MonoBehaviour
             shakeCam.AddCameraShake(0.33f);
             Destroy(spawnedKeys[i].gameObject);
         }
+
+        spawnedKeys.Clear();
     }
 }

@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/_gmtk2020/Scenes/CoolPrototype.unity
+    guid: 9d78c17216fc043bb95dde61ea427a06
   m_configObjects: {}
