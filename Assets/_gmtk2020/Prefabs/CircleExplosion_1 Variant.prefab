@@ -9,19 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: m_Name
-      value: CircleExplosion_1
+      value: CircleExplosion_1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.65
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: m_LocalRotation.x
@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: m_LocalRotation.z
@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: m_RootOrder
@@ -77,23 +77,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.38102198
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
-      propertyPath: InitialModule.startColor.minColor.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.6792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: InitialModule.startColor.minColor.g
-      value: 0.40282702
+      value: 0.6792453
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: InitialModule.startColor.minColor.b
-      value: 0
+      value: 0.6792453
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: looping
@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
@@ -122,6 +122,38 @@ PrefabInstance:
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
       value: 0.14382191
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: ShapeModule.type
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: ShapeModule.arc.spread
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
