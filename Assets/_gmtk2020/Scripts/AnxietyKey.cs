@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class AnxietyKey : MonoBehaviour
 {
-    public CanvasGroup keyGroup;
     public Text keyText;
 
     public KeyCode kcode;
     public float initialSize;
+    public float life;
 
     private float timeLeft, duration;
+    public Animation anim;
 
     public void Setup(KeyCode newCode, float difficulty = 0)
     {
@@ -21,10 +22,13 @@ public class AnxietyKey : MonoBehaviour
         duration = Mathf.Lerp(1, 5, difficulty);
         timeLeft = duration;
 
+        life = 10;
         initialSize =  (0.5f + difficulty * 1.5f);
         transform.localScale = Vector3.one * initialSize;
 
         transform.Rotate(Vector3.forward, Random.Range(-15f, 15f));
+
+        StartCoroutine(LifeTimer());
     }
 
     public bool IsCompleted()
@@ -41,5 +45,20 @@ public class AnxietyKey : MonoBehaviour
         }
 
         return false;
+    }
+
+    IEnumerator LifeTimer()
+    {
+        do
+        {
+            anim.SetSpeed(Mathf.Lerp(3,0.25f,life/10));
+            life -= Time.deltaTime;
+            yield return null;
+        }
+        while (life > 0);
+
+        yield return new WaitForEndOfFrame();
+
+        GameLoop.instance.GameOver();
     }
 }

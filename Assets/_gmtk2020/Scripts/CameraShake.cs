@@ -48,4 +48,9 @@ public class CameraShake : MonoBehaviour
     {
         shakeDuration = _duration;
     }
+
+    public void AddCameraShake(float _duration)
+    {
+        shakeDuration += _duration;
+    }
 }
