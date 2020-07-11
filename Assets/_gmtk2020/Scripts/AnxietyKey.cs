@@ -9,24 +9,32 @@ public class AnxietyKey : MonoBehaviour
     public Text keyText;
 
     public KeyCode kcode;
-    public float duration;
+    public float initialSize;
 
-    private float timePressed;
+    private float timeLeft, duration;
 
-    private void Start()
+    public void Setup(KeyCode newCode, float difficulty = 0)
     {
-        timePressed = duration;
+        kcode = newCode;
+        keyText.text = kcode.ToString();
+
+        duration = Mathf.Lerp(1, 5, difficulty);
+        timeLeft = duration;
+
+        initialSize =  (0.5f + difficulty * 1.5f);
+        transform.localScale = Vector3.one * initialSize;
+
+        transform.Rotate(Vector3.forward, Random.Range(-15f, 15f));
     }
 
     public bool IsCompleted()
     {
         if(Input.GetKey(kcode))
         {
-            timePressed -= Time.deltaTime;
-
-            keyGroup.alpha = timePressed / duration;
-
-            if(keyGroup.alpha <= 0)
+            timeLeft -= Time.deltaTime;
+            transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * initialSize, timeLeft/duration);
+  
+            if(transform.localScale.magnitude <= 0.3f)
             {
                 return true;
             }

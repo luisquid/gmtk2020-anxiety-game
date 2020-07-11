@@ -40,11 +40,8 @@ public class KeyController : MonoBehaviour
             var k = Instantiate(keyPrefab,availableSpaces[Random.Range(0,availableSpaces.Count)]);
             availableSpaces.Remove(k.transform.parent);
 
-            //Randomize keycode
-            k.kcode = allowedKeys[Random.Range(0, allowedKeys.Count)];
-            k.keyText.text = k.kcode.ToString();
+            k.Setup(allowedKeys[Random.Range(0, allowedKeys.Count)], Random.Range(0f,1f));
             allowedKeys.Remove(k.kcode);
-
             spawnedKeys.Add(k);
         }
     }
@@ -64,7 +61,7 @@ public class KeyController : MonoBehaviour
         {
             SpawnKey();
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(1);
         }
     }
 }
