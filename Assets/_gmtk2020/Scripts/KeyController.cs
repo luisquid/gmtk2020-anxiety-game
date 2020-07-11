@@ -8,7 +8,7 @@ public class KeyController : MonoBehaviour
     public Transform spawnArea;
     public AnxietyKey keyPrefab;
     public ParticleSystem splush;
-    public Transform splushRenderTexture;
+    public CameraShake shakeCam;
 
     public List<AnxietyKey> spawnedKeys = new List<AnxietyKey>();
     private List<Transform> availableSpaces = new List<Transform>();
@@ -30,9 +30,11 @@ public class KeyController : MonoBehaviour
         {
             if(spawnedKeys[i].IsCompleted())
             {
-                splushRenderTexture.localScale = Vector3.one * spawnedKeys[i].initialSize * 2;
-                splushRenderTexture.position = spawnedKeys[i].transform.position;
+                splush.transform.position = spawnedKeys[i].transform.position;
                 splush.Play();
+
+                shakeCam.SetCameraShake(0.25f);
+
                 DespawnKey(spawnedKeys[i]);
             }
         }
