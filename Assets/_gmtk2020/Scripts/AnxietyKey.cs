@@ -14,16 +14,16 @@ public class AnxietyKey : MonoBehaviour
     private float timeLeft, duration;
     public Animation anim;
 
-    public void Setup(KeyCode newCode, float difficulty = 0)
+    public void Setup(KeyCode newCode, float size = 0)
     {
         kcode = newCode;
         keyText.text = kcode.ToString();
 
-        duration = Mathf.Lerp(1, 5, difficulty);
+        duration = Mathf.Lerp(1, 3, size);
         timeLeft = duration;
 
-        life = 10;
-        initialSize =  (0.5f + difficulty * 1.5f);
+        life = GameLoop.instance.TimeBeforeKeyExplodes;
+        initialSize =  1f + size*1.25f;
         transform.localScale = Vector3.one * initialSize;
 
         transform.Rotate(Vector3.forward, Random.Range(-3f,3f));
@@ -53,7 +53,12 @@ public class AnxietyKey : MonoBehaviour
         {
             anim.SetSpeed(Mathf.Lerp(3,0.25f,life/10));
             life -= Time.deltaTime;
-            yield return null;
+
+            do
+            {
+                yield return null;
+            } while (Input.GetKey(kcode));
+
         }
         while (life > 0);
 

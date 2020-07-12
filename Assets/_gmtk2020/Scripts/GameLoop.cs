@@ -20,11 +20,11 @@ public class GameLoop : MonoBehaviour
     public Text bestScore;
 
     private int currentHP;
+    public AnimationCurve difficultyCurve;
 
     private void Awake()
     {
         instance = this;
-        
     }
 
     private void Update()
@@ -63,6 +63,8 @@ public class GameLoop : MonoBehaviour
 
         if (currentHP < 1)
             GameOver();
+        else
+            keyManager.ClearAllKeys();
     }
 
     public void GameOver()
@@ -86,4 +88,8 @@ public class GameLoop : MonoBehaviour
         }
         menu.GameOverScreen();
     }
+
+    //Difficulty
+    public float TimeBetweenSpawns{ get{ return Mathf.Lerp(5, 1, difficultyCurve.Evaluate(timeSurvived / 70f));}}
+    public float TimeBeforeKeyExplodes { get{ return Mathf.Lerp(10, 5, difficultyCurve.Evaluate(timeSurvived / 70f)); }}
 }
