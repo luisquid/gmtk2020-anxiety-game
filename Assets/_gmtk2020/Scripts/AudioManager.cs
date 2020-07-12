@@ -16,26 +16,26 @@ public class AudioManager : MonoBehaviour
 
     public void Click()
     {
-        sfx.PlayOneShot(audios[0], PlayerPrefs.GetFloat("volume",1));
+        sfx.PlayOneShot(audios[0]);
     }
 
     public void NewChirp()
     {
-        sfx.PlayOneShot(audios[1], PlayerPrefs.GetFloat("volume", 1));
+        sfx.PlayOneShot(audios[1]);
     }
 
     public void NewKey()
     {
-        sfx.PlayOneShot(audios[2], PlayerPrefs.GetFloat("volume", 1));
+        sfx.PlayOneShot(audios[2]);
     }
 
     public void KeyCompleted()
     {
-        sfx.PlayOneShot(audios[3], PlayerPrefs.GetFloat("volume", 1));
+        sfx.PlayOneShot(audios[3]);
     }
 
     public void KeyExploded()
     {
-        sfx.PlayOneShot(audios[4], PlayerPrefs.GetFloat("volume", 1));
+        sfx.PlayOneShot(audios[4]);
     }
 }

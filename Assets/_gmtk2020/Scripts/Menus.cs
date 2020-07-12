@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Menus : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Menus : MonoBehaviour
         menuUI.alpha = 1;
         gameoverUI.alpha = 0;
         gameplayUI.alpha = 0;
+
+        sources = FindObjectsOfType<AudioSource>();
     }
 
     public void StartGame()
@@ -129,5 +132,27 @@ public class Menus : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private AudioSource[] sources;
+    public Image volumeIcon;
+    public void ToggleAudio()
+    {
+        if(!sources[0].mute)
+        {
+            for (int i = 0; i < sources.Length; i++)
+            {
+                sources[i].mute = true;
+            }
+            volumeIcon.color = Color.white.setAlpha(0.5f);
+        }
+        else
+        {
+            for (int i = 0; i < sources.Length; i++)
+            {
+                sources[i].mute = false;
+            }
+            volumeIcon.color = Color.white.setAlpha(1);
+        }
     }
 }
