@@ -123,8 +123,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.5, y: -6.01}
-  m_SizeDelta: {x: 131.111, y: 22.979702}
+  m_AnchoredPosition: {x: 22.5, y: -7.3283}
+  m_SizeDelta: {x: 131.111, y: 34.81805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4630292378064136817
 CanvasRenderer:
@@ -166,7 +166,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Can you believe that one dude from that other place, he sucks.
+  m_Text: "I\u2019d like to apologize for my regretful comments regarding our planetary
+    system's star. You deserve better from me\u2026"
 --- !u!1 &4630292378221494760
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +202,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.62, y: 13.08}
-  m_SizeDelta: {x: 135.34805, y: 8.845177}
+  m_AnchoredPosition: {x: 24.62, y: 14.74}
+  m_SizeDelta: {x: 135.34805, y: 9.318489}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4630292378221494759
 CanvasRenderer:
