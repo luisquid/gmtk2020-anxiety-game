@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Chirper : MonoBehaviour
 {
-    public GameObject chirpPrefab;
+    public ChirpUI chirpPrefab;
     public Text newChirps;
     public Animator chirpsAlert;
     public Animation phone;
     public ChirpsData allChirps;
+
+    private List<Chirp> chirpsToSpawn;
 
     private ScrollRect scroll;
 
@@ -33,10 +36,14 @@ public class Chirper : MonoBehaviour
         }
     }
 
+    int chirpIndex;
     public void Setup()
     {
+        chirpIndex = 0;
+        chirpsToSpawn = allChirps.chirps.OrderBy(x => Random.value).ToList();
+
         //SETUP
-        foreach(Transform ch in scroll.content)
+        foreach (Transform ch in scroll.content)
         {
             if(!ch.name.Contains("Welcome"))
                 Destroy(ch.gameObject);
@@ -57,6 +64,19 @@ public class Chirper : MonoBehaviour
         while(true)
         {
             var ch = Instantiate(chirpPrefab, scroll.content);
+            
+            ch.Setup(chirpsToSpawn[chirpIndex]);
+            //Debug.Log(chirpsToSpawn[chirpIndex].actualChirp);
+            if(chirpIndex+1 < chirpsToSpawn.Count)
+            {
+                chirpIndex++;
+            }
+            else
+            {
+                chirpIndex = 0;
+                chirpsToSpawn = allChirps.chirps.OrderBy(x => Random.value).ToList();
+            }
+
             ch.transform.SetAsFirstSibling();
 
             AudioManager.instance.NewChirp();
