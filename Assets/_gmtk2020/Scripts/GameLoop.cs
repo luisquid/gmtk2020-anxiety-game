@@ -9,6 +9,7 @@ public class GameLoop : MonoBehaviour
 
     public Menus menu;
     public KeyController keyManager;
+    public Chirper chirpsManager;
     public Image[] hpSprites;
 
     public float timeSurvived;
@@ -17,6 +18,7 @@ public class GameLoop : MonoBehaviour
 
     [Header("Game Over")]
     public Text finalScore;
+    public Text chirpsRead;
     public Text bestScore;
 
     private int currentHP;
@@ -51,6 +53,7 @@ public class GameLoop : MonoBehaviour
 
         isPlaying = true;
         keyManager.StartSpawning();
+        chirpsManager.StartChirps();
     }
 
     public void Damage()
@@ -71,8 +74,10 @@ public class GameLoop : MonoBehaviour
     {
         isPlaying = false;
         keyManager.StopSpawning();
+        chirpsManager.StopChirps();
 
         finalScore.text = score.text;
+        chirpsRead.text = $"and read {chirpsManager.totalChirpsRead} chirps";
 
         if(PlayerPrefs.GetFloat("highScore",0) < timeSurvived)
         {

@@ -89,6 +89,8 @@ public class Menus : MonoBehaviour
     public void Retry() => StartCoroutine(RetryGameplay());
     IEnumerator RetryGameplay()
     {
+        GameLoop.instance.chirpsManager.Setup();
+
         gameplayUI.interactable = false;
         menuUI.interactable = false;
         menuUI.blocksRaycasts = false;
