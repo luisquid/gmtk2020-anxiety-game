@@ -60,10 +60,12 @@ public class Menus : MonoBehaviour
     public void GameOverScreen() => StartCoroutine(ShowGameOver());
     IEnumerator ShowGameOver()
     {
+        gameplayUI.blocksRaycasts = false;
+        gameplayUI.interactable = false;
+
         yield return new WaitForSeconds(4f);
 
         gameoverUI.gameObject.SetActive(true);
-        gameplayUI.interactable = false;
         menuUI.interactable = false;
         menuUI.blocksRaycasts = false;
 
@@ -119,6 +121,7 @@ public class Menus : MonoBehaviour
         }
         while (gameplayUI.alpha < 1);
 
+        gameplayUI.blocksRaycasts = true;
         gameplayUI.interactable = true;
         GameLoop.instance.StartLoop();
     }

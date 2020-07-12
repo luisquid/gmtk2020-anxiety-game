@@ -55,11 +55,13 @@ public class KeyController : MonoBehaviour
     {
         if(correct)
         {
+            AudioManager.instance.KeyCompleted();
             splash.transform.position = k.transform.position;
             splash.Play();
         }
         else
         {
+            AudioManager.instance.KeyExploded();
             splush.transform.position = k.transform.position;
             splush.Play();
         }
@@ -100,6 +102,7 @@ public class KeyController : MonoBehaviour
         {
             yield return new WaitForSeconds(0.25f);
 
+            AudioManager.instance.KeyExploded();
             splush.transform.position = spawnedKeys[i].transform.position;
             splush.Play();
 
@@ -124,6 +127,7 @@ public class KeyController : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
 
+            AudioManager.instance.KeyExploded();
             splush.transform.position = spawnedKeys[i].transform.position;
             splush.Play();
 

@@ -16,6 +16,8 @@ public class AnxietyKey : MonoBehaviour
 
     public void Setup(KeyCode newCode, float size = 0)
     {
+        AudioManager.instance.NewKey();
+
         kcode = newCode;
         keyText.text = kcode.ToString();
 

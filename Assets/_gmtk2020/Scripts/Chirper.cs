@@ -7,10 +7,15 @@ public class Chirper : MonoBehaviour
 {
     public GameObject chirpPrefab;
     public Text newChirps;
+    public Animator chirpsAlert;
+    public Animation phone;
+    public ChirpsData allChirps;
+
     private ScrollRect scroll;
 
     private int newSpawnedChirps;
     public int totalChirpsRead;
+
 
     private void Awake()
     {
@@ -22,9 +27,9 @@ public class Chirper : MonoBehaviour
     {
         if(scroll.verticalNormalizedPosition >= 1)
         {
+            chirpsAlert.SetBool("show", false);
             totalChirpsRead += newSpawnedChirps;
             newSpawnedChirps = 0;
-            newChirps.text = "no new chirps available!";
         }
     }
 
@@ -54,8 +59,12 @@ public class Chirper : MonoBehaviour
             var ch = Instantiate(chirpPrefab, scroll.content);
             ch.transform.SetAsFirstSibling();
 
+            AudioManager.instance.NewChirp();
+            chirpsAlert.SetBool("show", true);
+            phone.PlayNormal(3);
+
             newSpawnedChirps++;
-            newChirps.text = $"{newSpawnedChirps} new chirps available!";
+            newChirps.text = $"{newSpawnedChirps} new chirps!";
             yield return new WaitForSeconds(Random.Range(0.3f,3));
         }
     }
