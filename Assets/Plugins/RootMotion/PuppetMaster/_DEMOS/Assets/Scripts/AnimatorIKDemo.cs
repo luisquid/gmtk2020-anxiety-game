@@ -21,6 +21,7 @@ namespace RootMotion.Demos {
 
             animator.SetIKPosition(AvatarIKGoal.LeftHand, leftHandIKTarget.position);
 			animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1f);
+
 		}
 	}
 }

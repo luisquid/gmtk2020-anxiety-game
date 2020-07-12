@@ -10,6 +10,7 @@ public class GameLoop : MonoBehaviour
     public Menus menu;
     public KeyController keyManager;
     public MotionController motionController;
+    public RagdollManager ragManager;
     public ParticleSystem dropsParticles;
     public ParticleSystem smokeParticles;
     public Cues cuesManager;
@@ -71,6 +72,7 @@ public class GameLoop : MonoBehaviour
     {
         currentHP--;
 
+        ragManager.Attack();
         motionController.SetRagdollWeight(0.3f);
         motionController.SetMuscleWeight(0.3f);
         cuesManager.DamageCue();

@@ -10,12 +10,6 @@ public class MotionController : MonoBehaviour
     public float weight = 1f;
     public float muscle = 1f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public void KillRagdoll(bool state)
     {
         master.state = state ? PuppetMaster.State.Dead : PuppetMaster.State.Alive;

@@ -24,14 +24,6 @@ public class Cues : MonoBehaviour
         //chromaticProperty.intensity.Override(0.5f);
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            DamageCue();
-        }
-    }
-
     public void DamageCue() => StartCoroutine(CallAberration());
 
     IEnumerator CallAberration()
