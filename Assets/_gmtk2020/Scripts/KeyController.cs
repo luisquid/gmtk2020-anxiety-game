@@ -7,7 +7,7 @@ public class KeyController : MonoBehaviour
     public int maxKeys = 5;
     public Transform spawnArea;
     public AnxietyKey keyPrefab;
-    public ParticleSystem splush;
+    public ParticleSystem splush, splash;
     public CameraShake shakeCam;
 
     public List<AnxietyKey> spawnedKeys = new List<AnxietyKey>();
@@ -28,10 +28,12 @@ public class KeyController : MonoBehaviour
 
         for (int i = 0; i < spawnedKeys.Count; i++)
         {
-            if (spawnedKeys[i].IsCompleted())
+            if(spawnedKeys[i] != null)
             {
-                
-                DespawnKey(spawnedKeys[i]);
+                if (spawnedKeys[i].IsCompleted())
+                {
+                    DespawnKey(spawnedKeys[i]);
+                }
             }
         }
     }
@@ -49,10 +51,18 @@ public class KeyController : MonoBehaviour
         }
     }
 
-    public void DespawnKey(AnxietyKey k)
+    public void DespawnKey(AnxietyKey k, bool correct = true)
     {
-        splush.transform.position = k.transform.position;
-        splush.Play();
+        if(correct)
+        {
+            splash.transform.position = k.transform.position;
+            splash.Play();
+        }
+        else
+        {
+            splush.transform.position = k.transform.position;
+            splush.Play();
+        }
 
         shakeCam.SetCameraShake(0.25f);
 
@@ -105,22 +115,28 @@ public class KeyController : MonoBehaviour
         spawnedKeys.Clear();
     }
 
-    public void ClearAllKeys()
+    public void ClearAllKeys() => StartCoroutine(ClearKeys());
+    IEnumerator ClearKeys()
     {
-        spawnBreak = 3;
+        spawnBreak = 1000;
 
         for (int i = 0; i < spawnedKeys.Count; i++)
         {
+            yield return new WaitForSeconds(0.1f);
+
             splush.transform.position = spawnedKeys[i].transform.position;
             splush.Play();
 
             allowedKeys.Add(spawnedKeys[i].kcode);
             availableSpaces.Add(spawnedKeys[i].transform.parent);
 
+            yield return new WaitForEndOfFrame();
+
             shakeCam.AddCameraShake(0.33f);
             Destroy(spawnedKeys[i].gameObject);
         }
 
+        spawnBreak = 3;
         spawnedKeys.Clear();
     }
 

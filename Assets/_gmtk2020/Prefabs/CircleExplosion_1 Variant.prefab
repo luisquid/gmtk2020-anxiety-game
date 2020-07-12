@@ -77,23 +77,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
+      value: 0.1253066
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: InitialModule.startColor.minColor.r
-      value: 0.6792453
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: InitialModule.startColor.minColor.g
-      value: 0.6792453
+      value: 0.4077798
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: InitialModule.startColor.minColor.b
-      value: 0.6792453
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: looping
@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: moveWithTransform
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -154,6 +154,18 @@ PrefabInstance:
     - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
       propertyPath: ShapeModule.arc.spread
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c94352eb7ef7a24bb3cc216c602b715, type: 3}

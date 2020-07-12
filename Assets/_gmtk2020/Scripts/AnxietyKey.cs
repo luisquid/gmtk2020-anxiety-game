@@ -64,7 +64,7 @@ public class AnxietyKey : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
-        GameLoop.instance.keyManager.DespawnKey(this);
+        GameLoop.instance.keyManager.DespawnKey(this, false);
         GameLoop.instance.Damage();
     }
 }
