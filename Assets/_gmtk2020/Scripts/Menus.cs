@@ -60,6 +60,8 @@ public class Menus : MonoBehaviour
     public void GameOverScreen() => StartCoroutine(ShowGameOver());
     IEnumerator ShowGameOver()
     {
+        yield return new WaitForSeconds(4f);
+
         gameoverUI.gameObject.SetActive(true);
         gameplayUI.interactable = false;
         menuUI.interactable = false;

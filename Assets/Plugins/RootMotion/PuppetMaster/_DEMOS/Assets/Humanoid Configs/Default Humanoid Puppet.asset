@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f10d3d82c6eecfd4da1589ecec319d68, type: 3}
   m_Name: Default Humanoid Puppet
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   stateSettings:
     killDuration: 1
     deadMuscleWeight: 0.01
@@ -27,9 +27,9 @@ MonoBehaviour:
   solverIterationCount: 6
   visualizeTargetPose: 1
   mappingWeight: 1
-  pinWeight: 1
-  muscleWeight: 1
-  muscleSpring: 100
+  pinWeight: 0.407
+  muscleWeight: 0.691
+  muscleSpring: 50
   muscleDamper: 0
   pinPow: 4
   pinDistanceFalloff: 5

@@ -9,6 +9,10 @@ public class GameLoop : MonoBehaviour
 
     public Menus menu;
     public KeyController keyManager;
+    public MotionController motionController;
+    public ParticleSystem dropsParticles;
+    public ParticleSystem smokeParticles;
+    public Cues cuesManager;
     public Chirper chirpsManager;
     public Image[] hpSprites;
 
@@ -39,6 +43,9 @@ public class GameLoop : MonoBehaviour
             int mil = (int)(100 * (timeSurvived - min * 60 - sec));
 
             score.text = string.Format("{0:00}:{1:00}:{2:00}", min, sec, mil);
+
+            var main = dropsParticles.main;
+            main.simulationSpeed = timeSurvived * 0.05f;
         }
     }
 
@@ -46,12 +53,16 @@ public class GameLoop : MonoBehaviour
     {
         timeSurvived = 0;
         currentHP = hpSprites.Length;
+        smokeParticles.Stop();
         for (int i = 0; i < hpSprites.Length; i++)
         {
             hpSprites[i].gameObject.SetActive(currentHP >= i);
         }
 
         isPlaying = true;
+        motionController.master.pinWeight = 1f;
+        motionController.master.muscleWeight = 1f;
+        motionController.KillRagdoll(false);
         keyManager.StartSpawning();
         chirpsManager.StartChirps();
     }
@@ -59,6 +70,11 @@ public class GameLoop : MonoBehaviour
     public void Damage()
     {
         currentHP--;
+
+        motionController.SetRagdollWeight(0.3f);
+        motionController.SetMuscleWeight(0.3f);
+        cuesManager.DamageCue();
+        //motionController.SetRagdollWeight();
         for (int i = 0; i < hpSprites.Length; i++)
         {
             hpSprites[i].gameObject.SetActive(currentHP-1 >= i);
@@ -72,10 +88,14 @@ public class GameLoop : MonoBehaviour
 
     public void GameOver()
     {
+        var main = dropsParticles.main;
+        main.simulationSpeed = 0f;
+        smokeParticles.Play();
+
         isPlaying = false;
         keyManager.StopSpawning();
         chirpsManager.StopChirps();
-
+        motionController.KillRagdoll(true);
         finalScore.text = score.text;
         chirpsRead.text = $"and read {chirpsManager.totalChirpsRead} chirps";
 
@@ -91,6 +111,7 @@ public class GameLoop : MonoBehaviour
             int mil = (int)(100 * (PlayerPrefs.GetFloat("highScore", 0) - min * 60 - sec));
             bestScore.text = "High score: " + string.Format("{0:00}:{1:00}:{2:00}", min, sec, mil);
         }
+
         menu.GameOverScreen();
     }
 
